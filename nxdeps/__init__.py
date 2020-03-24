@@ -1,6 +1,6 @@
 """Networkx extension to work with dependency graphs for NLP."""
 
-__version__ = '0.0.0'
+__version__ = '0.0.1'
 
 from typing import Any, Iterator, Tuple
 
