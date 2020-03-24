@@ -20,15 +20,7 @@ def is_projective(G: nx.DiGraph) -> bool:
     Returns:
         Whether the graph is projective.
     """
-    for head, depd in G.edges:
-        left, right = min(head, depd), max(head, depd)
-        for head2, depd2 in G.edges:
-            if head == head2 and depd == depd2:  # identical edge
-                continue
-            left2, right2 = min(head2, depd2), max(head2, depd2)
-            if left < left2 < right < right2 or left2 < left < right2 < right:
-                return False
-    return True
+    return len(list(G.edges)) == len(list(get_projective_edges(G)))
 
 
 def get_projective_edges(G: nx.DiGraph) -> Iterator[Tuple[Any, Any]]:
